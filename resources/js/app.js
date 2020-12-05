@@ -18,8 +18,9 @@ window.Vue = require('vue');
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+import mainComponent from './components/mainComponent.vue';
+// Vue.component('main-component', require('./components/mainComponent.vue').default);
 
-Vue.component('main-component', require('./components/mainComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -29,4 +30,5 @@ Vue.component('main-component', require('./components/mainComponent.vue').defaul
 
 const app = new Vue({
     el: '#app',
+    components: { mainComponent }
 });

@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <main-component/>
+    {{-- <navbar-component/> --}}
+    {{-- <main-component/> --}}
 @endsection
 
