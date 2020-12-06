@@ -30,12 +30,11 @@ html {
 
 body {
     background-color: $backgroundColor;
-    margin: 0 0 auto;
+    margin: 0 auto;
 }
 
 .wrapper {
-    max-width: 1366px;
-    height: 100%;
+    height: 100vh;
     justify-content: center;
     padding: 0 5em 2em 5em;
     width: 100%;
@@ -43,101 +42,121 @@ body {
 }
 
 // navbar
-.topnav {
-    height: 45px;
-    background-color: $navbar-color;
-    overflow: hidden;
-    ul {
-        float: right;
-        li {
-            display: inline;
-            padding: 14px 16px;
-            text-align: center;
-            cursor: pointer;
-            &:hover {
-                background-color: $liHover;
-                color: white;
-            }
-            a {
-                padding: 6px 0;
-                color: $backgroundColor;
-                text-decoration: none;
-                font-size: 12px;
-                letter-spacing: 3px;
-                text-transform: uppercase;
-                border-bottom: 1px solid $liHover;
-                &:hover {
-                    border-bottom: 1px solid $text-color-3;
-                }
-            }
-        }
+  nav{
+    background: $navbar-color;
+    height: 56px;
+    width: 100%;
+  }
+  label.logo{
+    color: $backgroundColor;
+    font-size: 18px;
+    line-height: 56px;
+    padding: 0 100px;
+    font-weight: bold;
+  }
+  nav ul{
+    float: right;
+    margin-right: 20px;
+  }
+  nav ul li{
+    display: inline-block;
+    line-height: 56px;
+    margin: 0 5px;
+  }
+  nav ul li a{
+    color:$backgroundColor;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  a:hover{
+    background: $border-color;
+    transition: .5s;
+  }
+  .checkbtn{
+    font-size: 30px;
+    color:$backgroundColor;
+    float: right;
+    line-height: 56px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+  }
+  #check{
+    display: none;
+  }
+  @media (max-width: 952px){
+    label.logo{
+      font-size: 12px;
+      padding-left: 50px;
     }
-    .icon {
-        display: none;
+    nav ul li a{
+      font-size: 16px;
+      letter-spacing: 1px;
     }
-}
-
-/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
-@media screen and (max-width: 600px) {
-    .topnav a:not(:first-child),
-    .dropdown .dropbtn {
-        display: none;
+  }
+  @media (max-width: 858px){
+    .checkbtn{
+      display: block;
     }
-    .topnav a.icon {
-        float: right;
-        display: block;
-        cursor: pointer;
+    ul{
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background: $liHover;
+      top: 56px;
+      left: -100%;
+      text-align: center;
+      transition: all .5s;
+      z-index: 100;
     }
-}
-
-/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
-@media screen and (max-width: 600px) {
-    .topnav.responsive {
-        position: relative;
+    nav ul li{
+      display: block;
+      margin: 50px 0;
+      line-height: 30px;
     }
-    .topnav.responsive a.icon {
-        position: absolute;
-        right: 0;
-        top: 0;
+    nav ul li a{
+      font-size: 12px;
     }
-    .topnav.responsive a {
-        float: none;
-        display: block;
-        text-align: left;
+    a:hover{
+      background: none;
+      color: $border-color;
     }
-    .topnav.responsive {
-        float: none;
+    #check:checked ~ ul{
+      left: 0;
     }
-    .topnav.responsive {
-        position: relative;
-    }
-    .topnav.responsive {
-        display: block;
-        width: 100%;
-        text-align: left;
-    }
-}
+  }
 
 // action bar
-.action-bar > ul {
-    text-align: center;
+.action-bar { 
+    max-width: 1366px;
+    height: auto;
+    margin: 0 auto;
+    ul {
+    // text-align: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     li {
+        width: auto;
         display: inline-flex;
         flex-wrap: wrap;
         justify-content: center;
-        width: auto;
         cursor: pointer;
         padding: 0.5em 2em;
         font-size: 14px;
         font-weight: 300;
         letter-spacing: 2px;
-
         .selection-button {
             font-weight: 300;
             letter-spacing: 2px;
             color: $border-color;
-            line-height: 1.12;
-            text-align: left;
+            line-height: 1.12em;
+            text-align: center;
             padding: 3px 20px 3px 6px;
             position: relative;
             width: 100%;
@@ -187,8 +206,10 @@ body {
         }
     }
 }
+}
 
 .cards-section {
+    max-width: 1366px;
     grid-template-columns: repeat(auto-fit, minmax(330px, 370px));
     grid-gap: 0.4em;
     display: grid;

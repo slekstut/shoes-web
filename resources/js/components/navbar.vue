@@ -1,21 +1,19 @@
 <template>
-  <div class="topnav" id="myTopnav" v-bind:class="{ responsive: showMenu }">
+  <nav>
+    <input type="checkbox" id="check" />
+    <label for="check" class="checkbtn">
+      <i class="fas fa-bars"></i>
+    </label>
+    <label class="logo">SSS</label>
     <ul>
       <li><a href="#">Home</a></li>
-      <li><a href="#">Shoes</a></li>
-      <li><a href="#">Contact</a></li>
       <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
     </ul>
-    <a class="icon" @click="showMenu = !showMenu">&#9776;</a>
-  </div>
+  </nav>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      showMenu: false,
-    };
-  },
-};
+export default {};
 </script>

@@ -2103,13 +2103,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      showMenu: false
-    };
-  }
-});
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 
@@ -37991,44 +37989,31 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "topnav",
-      class: { responsive: _vm.showMenu },
-      attrs: { id: "myTopnav" }
-    },
-    [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass: "icon",
-          on: {
-            click: function($event) {
-              _vm.showMenu = !_vm.showMenu
-            }
-          }
-        },
-        [_vm._v("☰")]
-      )
-    ]
-  )
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("ul", [
-      _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Home")])]),
+    return _c("nav", [
+      _c("input", { attrs: { type: "checkbox", id: "check" } }),
       _vm._v(" "),
-      _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Shoes")])]),
+      _c("label", { staticClass: "checkbtn", attrs: { for: "check" } }, [
+        _c("i", { staticClass: "fas fa-bars" })
+      ]),
       _vm._v(" "),
-      _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Contact")])]),
+      _c("label", { staticClass: "logo" }, [_vm._v("SSS")]),
       _vm._v(" "),
-      _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("About")])])
+      _c("ul", [
+        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Home")])]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("About")])]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Services")])]),
+        _vm._v(" "),
+        _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Contact")])])
+      ])
     ])
   }
 ]
