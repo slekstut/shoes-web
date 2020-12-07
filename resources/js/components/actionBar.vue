@@ -26,11 +26,6 @@
           <div class="selection-text">Size</div>
         </button>
       </li>
-      <li>
-        <button class="selection-button">
-          <div class="selection-text">Price Range</div>
-        </button>
-      </li>
     </ul>
   </div>
 </template>
