@@ -1,6 +1,6 @@
-@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@300;
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@100;
 
-400;600;700&display=swap);@charset "UTF-8";
+200;300;400;500;600;700&display=swap);@charset "UTF-8";
 
 :root {
   --blue: #007bff;
@@ -11033,15 +11033,67 @@ nav #check {
 #top-bar ul li {
   font-size: 16px;
   padding: 0 20px;
+  position: relative;
   text-decoration: none;
-  display: inline-flex;
-  flex-wrap: nowrap;
+  display: inline-block;
   line-height: 50px;
+  text-decoration: none;
+  transition-duration: 0.5s;
 }
 
-#top-bar ul li i:hover {
+#top-bar ul li ul {
+  background: #a9a9a9;
+  visibility: hidden;
+  opacity: 0;
+  min-width: 12em;
+  position: absolute;
+  transition: all 0.5s ease;
+  margin-top: 0.05em;
+  left: -5em;
+  display: none;
+}
+
+#top-bar ul li ul:hover {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+  z-index: 103;
+}
+
+#top-bar ul li ul li {
+  clear: both;
+  width: 100%;
+  text-align: center;
+  padding: 0.2em 0.3em;
+}
+
+#top-bar ul li ul li:hover {
+  background: #525050;
+}
+
+#top-bar ul li ul li a {
+  position: relative;
+  color: #fff;
+  line-height: 1.2rem;
+  text-decoration: none;
+}
+
+#top-bar ul li i {
+  transition: 0.2s;
+  opacity: 0.6;
+}
+
+#top-bar ul li:hover {
   color: #eeabab;
+  opacity: 1;
   cursor: pointer;
+}
+
+#top-bar ul li:hover > ul {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+  z-index: 103;
 }
 
 .action-bar {
@@ -11078,7 +11130,7 @@ nav #check {
   padding: 3px 20px 3px 6px;
   position: relative;
   width: 100%;
-  height: 42px;
+  height: 2.8em;
   border-radius: 0;
   border: 1px solid #a9a9a9;
   border-right: none;
@@ -11105,8 +11157,8 @@ nav #check {
 }
 
 .action-bar ul li .selection-button:hover {
-  color: #d61f1f;
-  border: 1px solid #d61f1f;
+  color: #eeabab;
+  border: 1px solid #eeabab;
   border-right: none;
   border-left: none;
 }
@@ -11118,10 +11170,10 @@ nav #check {
 }
 
 .action-bar ul li .selection-button .selection-text {
-  padding-right: 8px;
+  padding-right: 0.5em;
   letter-spacing: 0.3px;
   vertical-align: middle;
-  min-height: 18px;
+  min-height: 1.1em;
   max-height: 100%;
   overflow: hidden;
 }
@@ -11397,11 +11449,212 @@ nav #check {
   line-height: 36px;
 }
 
+.register-form {
+  background: #fff;
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  justify-content: center;
+}
+
+.register-form form {
+  width: 30em;
+  padding: 6em 3em;
+}
+
+.register-form form h1 {
+  margin-bottom: 2em;
+  text-align: center;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  line-height: 2em;
+}
+
+.register-form form .floating-label {
+  position: relative;
+  margin-bottom: 2em;
+}
+
+.register-form form .floating-label .floating-input {
+  font-size: 1em;
+  padding: 0.7em 0.2em;
+  display: block;
+  width: 100%;
+  height: 2.2em;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #2d2d2d;
+}
+
+.register-form form .floating-label .floating-input:focus {
+  outline: none;
+  border-bottom: 2px solid #eeabab;
+}
+
+.register-form form .floating-label label {
+  color: #a9a9a9;
+  font-size: 1em;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 0.4em;
+  top: 0.4em;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.register-form form .floating-label .floating-input:not(:-moz-placeholder-shown) ~ label {
+  top: -18px;
+  font-size: 14px;
+  color: #eeabab;
+}
+
+.register-form form .floating-label .floating-input:not(:-ms-input-placeholder) ~ label {
+  top: -18px;
+  font-size: 14px;
+  color: #eeabab;
+}
+
+.register-form form .floating-label .floating-input:focus ~ label,
+.register-form form .floating-label .floating-input:not(:placeholder-shown) ~ label {
+  top: -18px;
+  font-size: 14px;
+  color: #eeabab;
+}
+
+.register-form form .floating-label .floating-input:focus ~ .bar:before,
+.register-form form .floating-label .floating-input:focus ~ .bar:after {
+  width: 50%;
+}
+
+.register-form form .floating-label *,
+.register-form form .floating-label *:before,
+.register-form form .floating-label *:after {
+  box-sizing: border-box;
+}
+
+.register-form form .error-msg {
+  color: #d61f1f;
+  font-size: 0.8em;
+}
+
+.register-form form .links-under {
+  padding: 0.5em 0;
+  text-align: center;
+}
+
+.register-form form .links-under a {
+  color: #2d2d2d;
+  padding: 0.2em 0.3em;
+}
+
+.register-form form button {
+  background: #2d2d2d;
+  color: #fff;
+  width: 100%;
+  height: 2.2em;
+  border: none;
+  letter-spacing: 0.2em;
+  text-align: center;
+  font-weight: normal;
+}
+
+.dashboard-wrapper {
+  height: 100vh;
+  background: #fff;
+  text-align: left;
+  padding: 2em 3em;
+}
+
+.dashboard-wrapper h1 {
+  font-size: 1.5em;
+}
+
+.dashboard-wrapper h3 {
+  font-size: 1.2em;
+}
+
+.dashboard-wrapper button {
+  background: #2d2d2d;
+  color: #fff;
+  width: 5em;
+  height: 2.2em;
+  border: none;
+  letter-spacing: 0.2em;
+  text-align: center;
+  font-weight: normal;
+}
+
+.about-wrapper {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-image: url(/images/learn-code.jpg?0aa97fcb88beb44a0b8caddd54fec1d9);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.8;
+  padding: 1em 2em;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.about-wrapper .about-section {
+  height: 30em;
+  width: 50em;
+  padding: 1em 5em;
+  text-align: center;
+  background: #fff;
+}
+
+.about-wrapper .about-section h1 {
+  font-size: 3em;
+  font-weight: 300;
+  padding: 0.5em 0.5em;
+}
+
+.about-wrapper .about-section p {
+  color: #2d2d2d;
+  font-size: 1.2em;
+  font-weight: 300;
+  padding-bottom: 1.5em;
+  line-height: 2em;
+  letter-spacing: 0.1em;
+}
+
+.contact-us-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.contact-us-wrapper .main-contact-text {
+  width: 60em;
+  padding: 1em 5em;
+  text-align: center;
+}
+
+.contact-us-wrapper .main-contact-text h1 {
+  font-size: 3em;
+  font-weight: 300;
+  padding: 0.5em 0.5em;
+}
+
+.contact-us-wrapper .main-contact-text h3 {
+  font-size: 2.2em;
+  padding-bottom: 1.5em;
+}
+
 footer {
   background-color: #f1f1f1;
   position: relative;
   padding: 2em 2em 0 2em;
-  margin-top: 2.5em;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -11484,36 +11737,36 @@ footer {
   background: #fff;
   border-radius: 10px;
   width: 90%;
-}
-
-.footer-newsletter form > input[type=email] {
-  background: #fff;
-  padding: 0.7em;
-  border: none;
-  text-align: left;
-  width: 55%;
-}
-
-.footer-newsletter form > input[type=email]:focus {
-  outline: none;
-}
-
-.footer-newsletter form > span {
   position: relative;
 }
 
-.footer-newsletter form > span > input[type=submit] {
+.footer-newsletter form input[type=email] {
+  background: #fff;
+  padding: 0.7em 0.7em 0.7em 1em;
+  border: none;
+  box-sizing: border-box;
+  text-align: left;
+  width: 20em;
+  border-radius: 10px;
+}
+
+.footer-newsletter form input[type=email]:focus {
+  outline: none;
+}
+
+.footer-newsletter form span input[type=submit] {
   position: absolute;
   padding: 0.6em;
   background: #2d2d2d;
   color: #fff;
   border: none;
+  border-radius: 5px;
   letter-spacing: 3px;
   line-height: 14px;
   white-space: nowrap;
   cursor: pointer;
-  left: 10px;
-  top: -6px;
+  right: 1em;
+  top: 0.35em;
 }
 
 .footer-secondary #copyright {

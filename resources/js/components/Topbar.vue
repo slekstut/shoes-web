@@ -15,7 +15,13 @@
       </button>
     </div>
     <ul>
-      <li><i class="fas fa-user fa-2x"></i></li>
+      <li>
+        <i class="fas fa-user fa-2x"></i>
+        <ul class="my-account-dropdown">
+          <router-link to="/login" tag="li"><a href="#">Sign In</a></router-link>
+          <router-link to="/register" tag="li"><a href="#">Sign Up</a></router-link>
+        </ul>
+      </li>
       <li><i class="fas fa-heart fa-2x"></i></li>
       <li><i class="fas fa-shopping-bag fa-2x"></i></li>
     </ul>

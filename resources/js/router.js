@@ -1,3 +1,4 @@
+import Axios from 'axios';
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
@@ -24,6 +25,28 @@ const routes = [
         path: '/contact',
         name: 'contact',
         component: () => import('./views/Contact.vue')
+    },
+    {
+        path: '/register',
+        name: 'register',
+        component: () => import('./components/Register.vue')
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: () => import('./components/Login.vue')
+    },
+    {
+        path: '/dashboard',
+        name: 'dashboard',
+        component: () => import('./components/Dashboard.vue'),
+        beforeEnter: (to, form, next) => {
+            Axios.get('/api/authenticated').then(() => {
+                next()
+            }).catch(() => {
+                return next({ name: 'login'})
+            })
+        }
     }
 ];
 
