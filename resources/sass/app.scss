@@ -275,7 +275,7 @@ nav {
 
 .homepage-hero {
     position: relative;
-    height: 823px;
+    height: 100vh;
     .homepage-hero-image {
         display: block;
         background-image: url("../data/img/homepage-hero.jpg");
@@ -448,6 +448,13 @@ nav {
     }
 }
 
+.loading {
+    margin: 0 auto;
+    font-size: 2em;
+    text-align: center;
+    padding: 2em 0;
+}
+
 .cards-section {
     max-width: 1366px;
     grid-template-columns: repeat(auto-fit, minmax(330px, 370px));
@@ -612,25 +619,140 @@ nav {
 }
 
 .dashboard-wrapper {
+    width: 100%;
     height: 100vh;
     background: $backgroundColor;
-    text-align: left;
-    padding: 2em 3em;
-    h1 {
-        font-size: 1.5em;
+    padding: 2em 3em 8em 2em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    div {
+        display: grid;
+        align-content: center;
+        justify-content: center;
+        h1 {
+            font-size: 1.5em;
+            padding-bottom: 0.8em;
+        }
+        h3 {
+            font-size: 1.2em;
+            padding-bottom: 0.8em;
+        }
+        button {
+            background: $text-color;
+            color: $backgroundColor;
+            width: 5em;
+            height: 2.2em;
+            border: none;
+            letter-spacing: 0.2em;
+            text-align: center;
+            font-weight: normal;
+        }
     }
-    h3 {
-        font-size: 1.2em;
+
+    .register-product {
+        position: relative;
+        margin-top: 2em;
+        display: grid;
+        align-content: center;
+        justify-content: center;
+        div {
+            form {
+                display: grid;
+                grid-gap: 0.3em;
+                input {
+                    width: 15em;
+                    padding: 0.5em;
+                }
+            }
+        }
+        .upload-data {
+            width: 15em;
+        }
     }
-    button {
-        background: $text-color;
-        color: $backgroundColor;
-        width: 5em;
-        height: 2.2em;
-        border: none;
-        letter-spacing: 0.2em;
+}
+
+.record-wrapper {
+    width: 100%;
+    height: 100vh;
+    max-width: 1366px;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0.8em;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    margin: 0 auto;
+    .record-info {
+        padding: 0.5em;
+        .record-text {
+            padding: 0.5em;
+        }
+    }
+    .record-options {
         text-align: center;
-        font-weight: normal;
+        .record-options-header {
+            text-transform: uppercase;
+            font-weight: 300;
+            font-size: 2em;
+            letter-spacing: 0.2em;
+        }
+        .selection-wrapper {
+            width: 60%;
+            margin: 0 auto;
+            form {
+                padding-left: 2em;
+    
+                label {
+                    width: 100%;
+                    display: block;
+                    margin: 3em 0 1em 0;
+                    letter-spacing: .2em;
+                    font-size: 1.3em;
+                }
+                select {
+                    text-align: center;
+                    width: 100%;
+                    height: 2.2em;
+                    border: none;
+                    border-bottom: 1px solid $text-color;
+                    padding: .2em .2em;
+                    &:focus { outline: none; }
+                }
+                .quantity-selector {
+                    display: block;
+                    input {
+                        position: relative;
+                        height: 2em;
+                        padding: .3em;
+                    }
+
+                    input::-webkit-outer-spin-button,
+                    input::-webkit-inner-spin-button {
+                        /* display: none; <- Crashes Chrome on hover */
+                        -webkit-appearance: none;
+                        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+                    }
+                    
+                    input[type=number] {
+                        -moz-appearance:textfield; /* Firefox */
+                    }
+
+                    button {
+                        width: 2em;
+                        border: none;
+                        font-size: 1.5em;
+                        #decrease {
+                            position: absolute;
+                            left: .1em;
+                        }
+                        #increase {
+                            position: absolute;
+                            right: .1em;
+                        }
+                    }
+                }
+            }
+        }
+        
     }
 }
 
@@ -674,9 +796,7 @@ nav {
     position: relative;
     width: 100%;
     height: 100%;
-    display: grid;
-    justify-content: center;
-    align-content: center;
+
     .main-contact-text {
         width: 60em;
         padding: 1em 5em;
@@ -701,130 +821,120 @@ footer {
     bottom: 0;
     width: 100%;
     overflow: hidden;
-}
-
-.footer {
-    display: grid;
-    gap: 2em;
-    grid-template-columns: 33% 33% 33%;
-    justify-content: center;
-}
-
-.customer-care {
-    padding-left: 1.8em;
-    h5 {
-        font-size: 16px;
-        text-transform: capitalize;
-        margin-bottom: 0;
-        color: $text-color-3;
+    .footer {
+        display: grid;
+        gap: 2em;
+        grid-template-columns: 33% 33% 33%;
+        justify-content: center;
+        .customer-care {
+            padding-left: 1.8em;
+            h5 {
+                font-size: 16px;
+                text-transform: capitalize;
+                margin-bottom: 0;
+                color: $text-color-3;
+            }
+            li a {
+                font-size: 11.2px;
+                line-height: 1.5em;
+                color: $text-color-3;
+                text-decoration: none;
+                text-transform: uppercase;
+                letter-spacing: 0.2em;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+            ul {
+                list-style-type: none;
+            }
+        }
     }
-}
-
-.customer-care li a {
-    font-size: 11.2px;
-    line-height: 1.5em;
-    color: $text-color-3;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    &:hover {
-        text-decoration: underline;
-    }
-}
-
-.customer-care ul {
-    list-style-type: none;
-}
-
-.footer-about {
-    padding-left: 1.8em;
-    h5 {
-        font-size: 16px;
-        text-transform: capitalize;
-        margin-bottom: 0;
-        color: $text-color-3;
-    }
-}
-
-.footer-about-text p {
-    font-size: 1rem;
-    line-height: 1.3em;
-    text-align: left;
-    &:first-child {
-        font-style: italic;
-    }
-}
-
-.footer-newsletter {
-    padding-left: 1.8em;
-    h5 {
-        font-size: 16px;
-        text-transform: capitalize;
-        margin-bottom: 0;
-        color: $text-color-3;
-    }
-    p {
-        padding-bottom: 2em;
-        margin: 0;
-    }
-
-    form {
-        background: $backgroundColor;
-        border-radius: 10px;
-        width: 90%;
-        position: relative;
-
-        input[type="email"] {
-            background: $backgroundColor;
-            padding: 0.7em 0.7em 0.7em 1em;
-            border: none;
-            box-sizing: border-box;
+    .footer-about {
+        padding-left: 1.8em;
+        h5 {
+            font-size: 16px;
+            text-transform: capitalize;
+            margin-bottom: 0;
+            color: $text-color-3;
+        }
+        p {
+            font-size: 1rem;
+            line-height: 1.3em;
             text-align: left;
-            width: 20em;
+            &:first-child {
+                font-style: italic;
+            }
+        }
+    }
+    .footer-newsletter {
+        padding-left: 1.8em;
+        h5 {
+            font-size: 16px;
+            text-transform: capitalize;
+            margin-bottom: 0;
+            color: $text-color-3;
+        }
+        p {
+            padding-bottom: 2em;
+            margin: 0;
+        }
+        form {
+            background: $backgroundColor;
             border-radius: 10px;
-            &:focus {
-                outline: none;
-            }
-        }
-        span {
-            input[type="submit"] {
-                position: absolute;
-                padding: 0.6em;
-                background: $text-color;
-                color: $backgroundColor;
+            width: 90%;
+            position: relative;
+            #email {
+                background: $backgroundColor;
+                padding: 0.7em 0.7em 0.7em 1em;
                 border: none;
-                border-radius: 5px;
-                letter-spacing: 3px;
-                line-height: 14px;
-                white-space: nowrap;
-                cursor: pointer;
-                right: 1em;
-                top: 0.35em;
+                box-sizing: border-box;
+                text-align: left;
+                width: 20em;
+                border-radius: 10px;
+                &:focus {
+                    outline: none;
+                }
+            }
+            span {
+                input[type="submit"] {
+                    position: absolute;
+                    padding: 0.6em;
+                    background: $text-color;
+                    color: $backgroundColor;
+                    border: none;
+                    border-radius: 5px;
+                    letter-spacing: 3px;
+                    line-height: 14px;
+                    white-space: nowrap;
+                    cursor: pointer;
+                    right: 1em;
+                    top: 0.35em;
+                }
             }
         }
     }
-}
-
-.footer-secondary {
-    #copyright {
-        margin: 1em 0;
-        padding: 0.2em;
-        text-align: center;
-        text-transform: uppercase;
-        font-size: 11.2px;
-        font-weight: 300;
-    }
-    ul {
-        list-style-type: none;
-        text-align: center;
-        li {
-            display: inline-block;
-            margin: 0.2em auto;
-            line-height: 1em;
-            padding: 0 0.5em 0 0.5em;
-            a > span > i {
-                color: black;
-                cursor: pointer;
+    .footer-secondary {
+        #copyright {
+            margin: 1em 0;
+            padding: 0.2em;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 11.2px;
+            font-weight: 300;
+        }
+        ul {
+            list-style-type: none;
+            text-align: center;
+            li {
+                display: inline-block;
+                margin: 0.2em auto;
+                line-height: 1em;
+                padding: 0 0.5em 0 0.5em;
+                a > span > i {
+                    color: black;
+                    cursor: pointer;
+                }
             }
         }
     }

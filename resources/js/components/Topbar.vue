@@ -20,6 +20,7 @@
         <ul class="my-account-dropdown">
           <router-link to="/login" tag="li"><a href="#">Sign In</a></router-link>
           <router-link to="/register" tag="li"><a href="#">Sign Up</a></router-link>
+          <li v-if="(user = !null)" @click.prevent="logout"><a href="#">Log Out</a></li>
         </ul>
       </li>
       <li><i class="fas fa-heart fa-2x"></i></li>
@@ -27,3 +28,25 @@
     </ul>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      user: null,
+    };
+  },
+  methods: {
+    logout() {
+      axios.post("/api/logout").then(() => {
+        this.$router.push({ name: "home" });
+      });
+    },
+  },
+  mounted() {
+    axios.get("/api/user").then((res) => {
+      this.user = res.data;
+    });
+  },
+};
+</script>

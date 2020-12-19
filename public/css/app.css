@@ -11180,7 +11180,7 @@ nav #check {
 
 .homepage-hero {
   position: relative;
-  height: 823px;
+  height: 100vh;
 }
 
 .homepage-hero .homepage-hero-image {
@@ -11375,6 +11375,13 @@ nav #check {
   font-weight: 400;
 }
 
+.loading {
+  margin: 0 auto;
+  font-size: 2em;
+  text-align: center;
+  padding: 2em 0;
+}
+
 .cards-section {
   max-width: 1366px;
   grid-template-columns: repeat(auto-fit, minmax(330px, 370px));
@@ -11561,21 +11568,31 @@ nav #check {
 }
 
 .dashboard-wrapper {
+  width: 100%;
   height: 100vh;
   background: #fff;
-  text-align: left;
-  padding: 2em 3em;
+  padding: 2em 3em 8em 2em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
-.dashboard-wrapper h1 {
+.dashboard-wrapper div {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+}
+
+.dashboard-wrapper div h1 {
   font-size: 1.5em;
+  padding-bottom: 0.8em;
 }
 
-.dashboard-wrapper h3 {
+.dashboard-wrapper div h3 {
   font-size: 1.2em;
+  padding-bottom: 0.8em;
 }
 
-.dashboard-wrapper button {
+.dashboard-wrapper div button {
   background: #2d2d2d;
   color: #fff;
   width: 5em;
@@ -11584,6 +11601,128 @@ nav #check {
   letter-spacing: 0.2em;
   text-align: center;
   font-weight: normal;
+}
+
+.dashboard-wrapper .register-product {
+  position: relative;
+  margin-top: 2em;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+}
+
+.dashboard-wrapper .register-product div form {
+  display: grid;
+  grid-gap: 0.3em;
+}
+
+.dashboard-wrapper .register-product div form input {
+  width: 15em;
+  padding: 0.5em;
+}
+
+.dashboard-wrapper .register-product .upload-data {
+  width: 15em;
+}
+
+.record-wrapper {
+  width: 100%;
+  height: 100vh;
+  max-width: 1366px;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.8em;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.record-wrapper .record-info {
+  padding: 0.5em;
+}
+
+.record-wrapper .record-info .record-text {
+  padding: 0.5em;
+}
+
+.record-wrapper .record-options {
+  text-align: center;
+}
+
+.record-wrapper .record-options .record-options-header {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 2em;
+  letter-spacing: 0.2em;
+}
+
+.record-wrapper .record-options .selection-wrapper {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.record-wrapper .record-options .selection-wrapper form {
+  padding-left: 2em;
+}
+
+.record-wrapper .record-options .selection-wrapper form label {
+  width: 100%;
+  display: block;
+  margin: 3em 0 1em 0;
+  letter-spacing: 0.2em;
+  font-size: 1.3em;
+}
+
+.record-wrapper .record-options .selection-wrapper form select {
+  text-align: center;
+  width: 100%;
+  height: 2.2em;
+  border: none;
+  border-bottom: 1px solid #2d2d2d;
+  padding: 0.2em 0.2em;
+}
+
+.record-wrapper .record-options .selection-wrapper form select:focus {
+  outline: none;
+}
+
+.record-wrapper .record-options .selection-wrapper form .quantity-selector {
+  display: block;
+}
+
+.record-wrapper .record-options .selection-wrapper form .quantity-selector input {
+  position: relative;
+  height: 2em;
+  padding: 0.3em;
+}
+
+.record-wrapper .record-options .selection-wrapper form .quantity-selector input::-webkit-outer-spin-button,
+.record-wrapper .record-options .selection-wrapper form .quantity-selector input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.record-wrapper .record-options .selection-wrapper form .quantity-selector input[type=number] {
+  -moz-appearance: textfield;
+  /* Firefox */
+}
+
+.record-wrapper .record-options .selection-wrapper form .quantity-selector button {
+  width: 2em;
+  border: none;
+  font-size: 1.5em;
+}
+
+.record-wrapper .record-options .selection-wrapper form .quantity-selector button #decrease {
+  position: absolute;
+  left: 0.1em;
+}
+
+.record-wrapper .record-options .selection-wrapper form .quantity-selector button #increase {
+  position: absolute;
+  right: 0.1em;
 }
 
 .about-wrapper {
@@ -11629,9 +11768,6 @@ nav #check {
   position: relative;
   width: 100%;
   height: 100%;
-  display: grid;
-  justify-content: center;
-  align-content: center;
 }
 
 .contact-us-wrapper .main-contact-text {
@@ -11661,25 +11797,25 @@ footer {
   overflow: hidden;
 }
 
-.footer {
+footer .footer {
   display: grid;
   gap: 2em;
   grid-template-columns: 33% 33% 33%;
   justify-content: center;
 }
 
-.customer-care {
+footer .footer .customer-care {
   padding-left: 1.8em;
 }
 
-.customer-care h5 {
+footer .footer .customer-care h5 {
   font-size: 16px;
   text-transform: capitalize;
   margin-bottom: 0;
   color: #303030;
 }
 
-.customer-care li a {
+footer .footer .customer-care li a {
   font-size: 11.2px;
   line-height: 1.5em;
   color: #303030;
@@ -11688,59 +11824,59 @@ footer {
   letter-spacing: 0.2em;
 }
 
-.customer-care li a:hover {
+footer .footer .customer-care li a:hover {
   text-decoration: underline;
 }
 
-.customer-care ul {
+footer .footer .customer-care ul {
   list-style-type: none;
 }
 
-.footer-about {
+footer .footer-about {
   padding-left: 1.8em;
 }
 
-.footer-about h5 {
+footer .footer-about h5 {
   font-size: 16px;
   text-transform: capitalize;
   margin-bottom: 0;
   color: #303030;
 }
 
-.footer-about-text p {
+footer .footer-about p {
   font-size: 1rem;
   line-height: 1.3em;
   text-align: left;
 }
 
-.footer-about-text p:first-child {
+footer .footer-about p:first-child {
   font-style: italic;
 }
 
-.footer-newsletter {
+footer .footer-newsletter {
   padding-left: 1.8em;
 }
 
-.footer-newsletter h5 {
+footer .footer-newsletter h5 {
   font-size: 16px;
   text-transform: capitalize;
   margin-bottom: 0;
   color: #303030;
 }
 
-.footer-newsletter p {
+footer .footer-newsletter p {
   padding-bottom: 2em;
   margin: 0;
 }
 
-.footer-newsletter form {
+footer .footer-newsletter form {
   background: #fff;
   border-radius: 10px;
   width: 90%;
   position: relative;
 }
 
-.footer-newsletter form input[type=email] {
+footer .footer-newsletter form #email {
   background: #fff;
   padding: 0.7em 0.7em 0.7em 1em;
   border: none;
@@ -11750,11 +11886,11 @@ footer {
   border-radius: 10px;
 }
 
-.footer-newsletter form input[type=email]:focus {
+footer .footer-newsletter form #email:focus {
   outline: none;
 }
 
-.footer-newsletter form span input[type=submit] {
+footer .footer-newsletter form span input[type=submit] {
   position: absolute;
   padding: 0.6em;
   background: #2d2d2d;
@@ -11769,7 +11905,7 @@ footer {
   top: 0.35em;
 }
 
-.footer-secondary #copyright {
+footer .footer-secondary #copyright {
   margin: 1em 0;
   padding: 0.2em;
   text-align: center;
@@ -11778,19 +11914,19 @@ footer {
   font-weight: 300;
 }
 
-.footer-secondary ul {
+footer .footer-secondary ul {
   list-style-type: none;
   text-align: center;
 }
 
-.footer-secondary ul li {
+footer .footer-secondary ul li {
   display: inline-block;
   margin: 0.2em auto;
   line-height: 1em;
   padding: 0 0.5em 0 0.5em;
 }
 
-.footer-secondary ul li a > span > i {
+footer .footer-secondary ul li a > span > i {
   color: black;
   cursor: pointer;
 }

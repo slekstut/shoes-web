@@ -17,9 +17,9 @@ const routes = [
         component: () => import('./views/About.vue')
     },
     {
-        path: '/products',
-        name: 'products',
-        component: () => import('./views/Products.vue')
+        path: '/records',
+        name: 'records',
+        component: () => import('./views/records/Records.vue')
     },
     {
         path: '/contact',
@@ -47,7 +47,13 @@ const routes = [
                 return next({ name: 'login'})
             })
         }
-    }
+    },
+    {
+        path: '/record/:id',
+        name: 'record',
+        component: () => import('./views/record/Record.vue')
+    },
+
 ];
 
 const router = new Router ({

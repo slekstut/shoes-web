@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +18,12 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+Route::get('/{any?}', function () {
+    return view('welcome');
+})->where('any', '^(?!api\/)[\/\w\.-]*');
+
+Route::get('/welcome', 'HomeController@index')->name('welcome');
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('{any}', function () {
-    return view('welcome');
-})->where('any','.*');

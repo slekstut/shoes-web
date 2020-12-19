@@ -84,7 +84,11 @@ export default {
       axios
         .post("/api/register", this.form)
         .then(() => {
-          console.log("saved");
+          this.$router.push({ name: "login" });
+          this.form.name = "";
+          this.form.email = "";
+          this.form.password = "";
+          this.form.password_confirmation = "";
         })
         .catch((error) => {
           this.errors = error.response.data.errors;

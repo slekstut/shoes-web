@@ -10,7 +10,6 @@
           placeholder=" "
           type="email"
           v-model="form.email"
-          name="email"
         />
         <span class="error-msg" v-if="errors.email">{{ errors.email[0] }}</span>
         <label for="email">Your e-mail</label>

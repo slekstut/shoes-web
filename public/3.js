@@ -94,7 +94,14 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.post("/api/register", this.form).then(function () {
-        console.log("saved");
+        _this.$router.push({
+          name: "login"
+        });
+
+        _this.form.name = "";
+        _this.form.email = "";
+        _this.form.password = "";
+        _this.form.password_confirmation = "";
       })["catch"](function (error) {
         _this.errors = error.response.data.errors;
       });

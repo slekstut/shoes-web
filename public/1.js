@@ -15,36 +15,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      user: null
-    };
-  },
-  methods: {
-    logout: function logout() {
-      var _this = this;
-
-      axios.post("/api/logout").then(function () {
-        _this.$router.push({
-          name: "home"
-        });
-      });
-    }
-  },
-  mounted: function mounted() {
-    var _this2 = this;
-
-    axios.get("/api/user").then(function (res) {
-      _this2.user = res.data;
-    });
-  }
-});
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 
@@ -63,27 +34,8 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "dashboard-wrapper" }, [
-      _c("h1", [_vm._v("Dashboard")]),
-      _vm._v(" "),
-      _c("h3", [_vm._v("User name: " + _vm._s(_vm.user.name))]),
-      _vm._v(" "),
-      _c("h3", [_vm._v("email: " + _vm._s(_vm.user.email))]),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          on: {
-            click: function($event) {
-              $event.preventDefault()
-              return _vm.logout($event)
-            }
-          }
-        },
-        [_vm._v("Logout")]
-      )
-    ])
+  return _c("div", { staticClass: "dashboard-wrapper" }, [
+    _vm._v("\n    Dashboard\n    \n")
   ])
 }
 var staticRenderFns = []
