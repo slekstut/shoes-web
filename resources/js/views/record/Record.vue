@@ -3,15 +3,17 @@
     <div class="record-info">
       <div class="record-text">
         <div v-if="!loading">
-          {{ record.title }}
+          <div class="record-title">{{ record.title }}</div>
           <hr />
-          {{ record.description }}
+          <p>Product Details</p>
+          <div class="record-description">{{ record.description }}</div>
+          <div class="record-details-price">&#8364;{{ record.price }}</div>
         </div>
         <div class="loading" v-else>Loading...</div>
       </div>
     </div>
     <div>
-      <record-options />
+      <record-options v-bind="record" />
     </div>
   </div>
 </template>

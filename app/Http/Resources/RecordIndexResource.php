@@ -18,6 +18,9 @@ class RecordIndexResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'description' => $this->description,
+            'price' => $this->price,
+            'size' => $this->size,
+            'color' => $this->color,
         ];
     }
 }

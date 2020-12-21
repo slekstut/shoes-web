@@ -685,6 +685,17 @@ nav {
         padding: 0.5em;
         .record-text {
             padding: 0.5em;
+            .record-title{
+                font-weight: 600;
+            }
+            .record-description {
+                font-size: .9em;
+            }
+            .record-details-price {
+                padding: 1.5em 0;
+                font-size: 1.2em;
+
+            }
         }
     }
     .record-options {
@@ -694,6 +705,7 @@ nav {
             font-weight: 300;
             font-size: 2em;
             letter-spacing: 0.2em;
+            margin-bottom: 2.2em;
         }
         .selection-wrapper {
             width: 60%;
@@ -704,9 +716,10 @@ nav {
                 label {
                     width: 100%;
                     display: block;
-                    margin: 3em 0 1em 0;
+                    margin: 1.5em 0 .4em 0;
                     letter-spacing: .2em;
                     font-size: 1.3em;
+                    text-transform: uppercase;
                 }
                 select {
                     text-align: center;
@@ -747,6 +760,20 @@ nav {
                         #increase {
                             position: absolute;
                             right: .1em;
+                        }
+                    }
+                    .add-btn {
+                        display: block;
+                        width: 100%;
+                        font-size: 1.5em;
+                        font-weight: 100;
+                        background: $backgroundColor;
+                        border: 1px solid $text-color;
+                        padding: .3em;
+                        margin: 3em 0;
+                        &:hover {
+                            background: $text-color;
+                            color: $backgroundColor;
                         }
                     }
                 }

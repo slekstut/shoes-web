@@ -54405,19 +54405,19 @@ var routes = [{
   path: '/register',
   name: 'register',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./components/Register.vue */ "./resources/js/components/Register.vue"));
+    return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./components/Register.vue */ "./resources/js/components/Register.vue"));
   }
 }, {
   path: '/login',
   name: 'login',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./components/Login.vue */ "./resources/js/components/Login.vue"));
+    return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./components/Login.vue */ "./resources/js/components/Login.vue"));
   }
 }, {
   path: '/dashboard',
   name: 'dashboard',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./components/Dashboard.vue */ "./resources/js/components/Dashboard.vue"));
+    return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./components/Dashboard.vue */ "./resources/js/components/Dashboard.vue"));
   },
   beforeEnter: function beforeEnter(to, form, next) {
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/authenticated').then(function () {
@@ -54432,7 +54432,7 @@ var routes = [{
   path: '/record/:id',
   name: 'record',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./views/record/Record.vue */ "./resources/js/views/record/Record.vue"));
+    return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./views/record/Record.vue */ "./resources/js/views/record/Record.vue"));
   }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({

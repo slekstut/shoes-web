@@ -91,7 +91,8 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     title: String,
     description: String,
-    id: Number
+    id: Number,
+    price: Number
   }
 });
 
@@ -244,9 +245,9 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("p", [
-            _c("span", { staticClass: "old-price" }, [_vm._v("€ 129.99")]),
-            _vm._v(" "),
-            _c("span", { staticClass: "new-price" }, [_vm._v("€ 99.99")])
+            _c("span", { staticClass: "new-price" }, [
+              _vm._v("€ " + _vm._s(_vm.price))
+            ])
           ])
         ]
       ),

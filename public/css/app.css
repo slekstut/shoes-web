@@ -11645,6 +11645,19 @@ nav #check {
   padding: 0.5em;
 }
 
+.record-wrapper .record-info .record-text .record-title {
+  font-weight: 600;
+}
+
+.record-wrapper .record-info .record-text .record-description {
+  font-size: 0.9em;
+}
+
+.record-wrapper .record-info .record-text .record-details-price {
+  padding: 1.5em 0;
+  font-size: 1.2em;
+}
+
 .record-wrapper .record-options {
   text-align: center;
 }
@@ -11654,6 +11667,7 @@ nav #check {
   font-weight: 300;
   font-size: 2em;
   letter-spacing: 0.2em;
+  margin-bottom: 2.2em;
 }
 
 .record-wrapper .record-options .selection-wrapper {
@@ -11668,9 +11682,10 @@ nav #check {
 .record-wrapper .record-options .selection-wrapper form label {
   width: 100%;
   display: block;
-  margin: 3em 0 1em 0;
+  margin: 1.5em 0 0.4em 0;
   letter-spacing: 0.2em;
   font-size: 1.3em;
+  text-transform: uppercase;
 }
 
 .record-wrapper .record-options .selection-wrapper form select {
@@ -11723,6 +11738,22 @@ nav #check {
 .record-wrapper .record-options .selection-wrapper form .quantity-selector button #increase {
   position: absolute;
   right: 0.1em;
+}
+
+.record-wrapper .record-options .selection-wrapper form .quantity-selector .add-btn {
+  display: block;
+  width: 100%;
+  font-size: 1.5em;
+  font-weight: 100;
+  background: #fff;
+  border: 1px solid #2d2d2d;
+  padding: 0.3em;
+  margin: 3em 0;
+}
+
+.record-wrapper .record-options .selection-wrapper form .quantity-selector .add-btn:hover {
+  background: #2d2d2d;
+  color: #fff;
 }
 
 .about-wrapper {

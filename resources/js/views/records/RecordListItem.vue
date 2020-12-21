@@ -16,8 +16,8 @@
         <p>{{ description }}</p>
       </div>
       <p>
-        <span class="old-price">&#8364; 129.99</span>
-        <span class="new-price">&#8364; 99.99</span>
+        <!-- <span class="old-price">&#8364; 129.99</span> -->
+        <span class="new-price">&#8364; {{ price }}</span>
       </p>
       <!-- </a> -->
     </router-link>
@@ -29,6 +29,6 @@
 
 <script>
 export default {
-  props: { title: String, description: String, id: Number },
+  props: { title: String, description: String, id: Number, price: Number },
 };
 </script>
