@@ -1,7 +1,7 @@
 <template>
   <div id="top-bar">
     <div class="logo">
-      <img src="../../data/e.shop-icon.png" alt="eshop-brand" />
+      <img src="/storage/e.shop-icon.png" alt="eshop-brand" />
     </div>
     <div class="search-bar">
       <label for="search"></label>

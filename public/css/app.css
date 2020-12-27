@@ -10907,12 +10907,14 @@ a.text-dark:focus {
 
 html {
   position: relative;
-  height: 100%;
+  min-height: 100vh;
 }
 
 body {
   background-color: #fff;
-  margin: 0 auto;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
 }
 
 .wrapper {
@@ -11114,7 +11116,6 @@ nav #check {
 }
 
 .action-bar ul li {
-  cursor: pointer;
   padding: 0.5em 2em;
   font-size: 14px;
   font-weight: 300;
@@ -11136,6 +11137,7 @@ nav #check {
   border-right: none;
   border-left: none;
   background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
 }
 
 .action-bar ul li .selection-button:after {
@@ -11185,7 +11187,7 @@ nav #check {
 
 .homepage-hero .homepage-hero-image {
   display: block;
-  background-image: url(/images/homepage-hero.jpg?7739b541f0c3e3a50db3f20f32d2495c);
+  background-image: url("/storage/img/homepage-hero.jpg");
   background-size: cover;
   background-position: center center;
   width: 100%;
@@ -11334,7 +11336,7 @@ nav #check {
   font-weight: 300;
   text-align: center;
   line-height: 1.3em;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
   padding: 1.2em 1em;
 }
 
@@ -11344,7 +11346,7 @@ nav #check {
 }
 
 .homepage-featured .homepage-custom .parallax {
-  background-image: url(/images/women-shopping.jpg?6cd92ee6085589d6f1704024bab41e2d);
+  background-image: url("/storage/img/women-shopping.jpg");
   height: 100%;
   background-attachment: fixed;
   background-position: center;
@@ -11376,14 +11378,41 @@ nav #check {
 }
 
 .loading {
-  margin: 0 auto;
-  font-size: 2em;
-  text-align: center;
-  padding: 2em 0;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  border: 10px solid #f1f1f1;
+  border-top: 10px solid #eeabab;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .cards-section {
   max-width: 1366px;
+  height: 100%;
   grid-template-columns: repeat(auto-fit, minmax(330px, 370px));
   grid-gap: 0.4em;
   display: grid;
@@ -11625,44 +11654,53 @@ nav #check {
   width: 15em;
 }
 
-.record-wrapper {
-  width: 100%;
+.review-page {
+  position: relative;
   height: 100vh;
-  max-width: 1366px;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 0.8em;
-  display: grid;
-  align-content: center;
-  justify-content: center;
   margin: 0 auto;
 }
 
-.record-wrapper .record-info {
+.review-page .record-wrapper {
+  max-width: 1366px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.4em;
+  align-content: center;
+  justify-content: center;
+}
+
+.review-page .record-wrapper .record-text {
+  margin-top: 4em;
+  height: 100vh;
+  text-align: left;
   padding: 0.5em;
 }
 
-.record-wrapper .record-info .record-text {
-  padding: 0.5em;
+.review-page .record-wrapper .record-text img {
+  width: 100%;
 }
 
-.record-wrapper .record-info .record-text .record-title {
+.review-page .record-wrapper .record-text .record-title {
+  margin-top: 1.5em;
   font-weight: 600;
 }
 
-.record-wrapper .record-info .record-text .record-description {
+.review-page .record-wrapper .record-text .record-description {
   font-size: 0.9em;
 }
 
-.record-wrapper .record-info .record-text .record-details-price {
+.review-page .record-wrapper .record-text .record-details-price {
   padding: 1.5em 0;
   font-size: 1.2em;
 }
 
-.record-wrapper .record-options {
+.review-page .record-wrapper .record-options {
+  margin-top: 4em;
+  height: 100vh;
   text-align: center;
 }
 
-.record-wrapper .record-options .record-options-header {
+.review-page .record-wrapper .record-options .record-options-header {
   text-transform: uppercase;
   font-weight: 300;
   font-size: 2em;
@@ -11670,16 +11708,16 @@ nav #check {
   margin-bottom: 2.2em;
 }
 
-.record-wrapper .record-options .selection-wrapper {
+.review-page .record-wrapper .record-options .selection-wrapper {
   width: 60%;
   margin: 0 auto;
 }
 
-.record-wrapper .record-options .selection-wrapper form {
+.review-page .record-wrapper .record-options .selection-wrapper form {
   padding-left: 2em;
 }
 
-.record-wrapper .record-options .selection-wrapper form label {
+.review-page .record-wrapper .record-options .selection-wrapper form label {
   width: 100%;
   display: block;
   margin: 1.5em 0 0.4em 0;
@@ -11688,7 +11726,13 @@ nav #check {
   text-transform: uppercase;
 }
 
-.record-wrapper .record-options .selection-wrapper form select {
+.review-page .record-wrapper .record-options .selection-wrapper form label span {
+  font-size: 0.5em;
+  letter-spacing: 0.1em;
+  color: #d61f1f;
+}
+
+.review-page .record-wrapper .record-options .selection-wrapper form select {
   text-align: center;
   width: 100%;
   height: 2.2em;
@@ -11697,50 +11741,68 @@ nav #check {
   padding: 0.2em 0.2em;
 }
 
-.record-wrapper .record-options .selection-wrapper form select:focus {
+.review-page .record-wrapper .record-options .selection-wrapper form select:focus {
   outline: none;
 }
 
-.record-wrapper .record-options .selection-wrapper form .quantity-selector {
+.review-page .record-wrapper .record-options .selection-wrapper form .quantity-selector {
   display: block;
 }
 
-.record-wrapper .record-options .selection-wrapper form .quantity-selector input {
+.review-page .record-wrapper .record-options .selection-wrapper form .quantity-selector input {
   position: relative;
   height: 2em;
   padding: 0.3em;
 }
 
-.record-wrapper .record-options .selection-wrapper form .quantity-selector input::-webkit-outer-spin-button,
-.record-wrapper .record-options .selection-wrapper form .quantity-selector input::-webkit-inner-spin-button {
+.review-page .record-wrapper .record-options .selection-wrapper form .quantity-selector input::-webkit-outer-spin-button,
+.review-page .record-wrapper .record-options .selection-wrapper form .quantity-selector input::-webkit-inner-spin-button {
   /* display: none; <- Crashes Chrome on hover */
   -webkit-appearance: none;
   margin: 0;
   /* <-- Apparently some margin are still there even though it's hidden */
 }
 
-.record-wrapper .record-options .selection-wrapper form .quantity-selector input[type=number] {
+.review-page .record-wrapper .record-options .selection-wrapper form .quantity-selector input[type=number] {
   -moz-appearance: textfield;
   /* Firefox */
 }
 
-.record-wrapper .record-options .selection-wrapper form .quantity-selector button {
+.review-page .record-wrapper .record-options .selection-wrapper form .quantity-selector .units-error {
+  margin: 1em 0;
+  font-size: 0.8em;
+  color: #d61f1f;
+}
+
+.review-page .record-wrapper .record-options .selection-wrapper form .quantity-selector button {
   width: 2em;
   border: none;
   font-size: 1.5em;
+  background: #fff;
+  color: #2d2d2d;
 }
 
-.record-wrapper .record-options .selection-wrapper form .quantity-selector button #decrease {
+.review-page .record-wrapper .record-options .selection-wrapper form .quantity-selector button #decrease {
   position: absolute;
   left: 0.1em;
 }
 
-.record-wrapper .record-options .selection-wrapper form .quantity-selector button #increase {
+.review-page .record-wrapper .record-options .selection-wrapper form .quantity-selector button #increase {
   position: absolute;
   right: 0.1em;
 }
 
-.record-wrapper .record-options .selection-wrapper form .quantity-selector .add-btn {
+.review-page .record-wrapper .record-options .selection-wrapper form .quantity-selector button:hover {
+  background: #2d2d2d;
+  color: #fff;
+  border-radius: 0.2em;
+}
+
+.review-page .record-wrapper .record-options .selection-wrapper form .quantity-selector button:focus {
+  outline: none;
+}
+
+.review-page .record-wrapper .record-options .selection-wrapper form .quantity-selector .add-btn {
   display: block;
   width: 100%;
   font-size: 1.5em;
@@ -11751,7 +11813,7 @@ nav #check {
   margin: 3em 0;
 }
 
-.record-wrapper .record-options .selection-wrapper form .quantity-selector .add-btn:hover {
+.review-page .record-wrapper .record-options .selection-wrapper form .quantity-selector .add-btn:hover {
   background: #2d2d2d;
   color: #fff;
 }
@@ -11760,7 +11822,7 @@ nav #check {
   width: 100%;
   height: 100vh;
   position: relative;
-  background-image: url(/images/learn-code.jpg?0aa97fcb88beb44a0b8caddd54fec1d9);
+  background-image: url("/storage/img/learn-code.jpg");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -11805,6 +11867,7 @@ nav #check {
   width: 60em;
   padding: 1em 5em;
   text-align: center;
+  margin: 0 auto;
 }
 
 .contact-us-wrapper .main-contact-text h1 {
@@ -11814,7 +11877,7 @@ nav #check {
 }
 
 .contact-us-wrapper .main-contact-text h3 {
-  font-size: 2.2em;
+  font-size: 1.5em;
   padding-bottom: 1.5em;
 }
 

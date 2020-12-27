@@ -80,19 +80,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     title: String,
     description: String,
     id: Number,
-    price: Number
+    price: Number,
+    image: String
   }
 });
 
@@ -236,6 +230,12 @@ var render = function() {
         "router-link",
         { attrs: { to: { name: "record", params: { id: _vm.id } } } },
         [
+          _c("div", [
+            _c("img", {
+              attrs: { src: "/storage/" + _vm.image, alt: _vm.title }
+            })
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "product-description" }, [
             _c("p", [_vm._v(_vm._s(_vm.title))])
           ]),

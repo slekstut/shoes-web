@@ -19,8 +19,10 @@ class RecordShowResource extends JsonResource
             'title' => $this->title,
             'description' => $this->description,
             'price' => $this->price,
+            'units' => $this->units,
             'size' => $this->size,
             'color' => $this->color,
+            'image' => $this->image,
         ];
     }
 }

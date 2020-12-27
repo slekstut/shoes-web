@@ -1,20 +1,17 @@
 <template>
-  <div class="record-wrapper">
-    <div class="record-info">
+  <div class="review-page">
+    <div class="record-wrapper" v-if="!loading">
       <div class="record-text">
-        <div v-if="!loading">
-          <div class="record-title">{{ record.title }}</div>
-          <hr />
-          <p>Product Details</p>
-          <div class="record-description">{{ record.description }}</div>
-          <div class="record-details-price">&#8364;{{ record.price }}</div>
-        </div>
-        <div class="loading" v-else>Loading...</div>
+        <img :src="'/storage/' + record.image" :alt="record.title" />
+        <div class="record-title">{{ record.title }}</div>
+        <hr />
+        <p>Product Details</p>
+        <div class="record-description">{{ record.description }}</div>
+        <div class="record-details-price">&#8364;{{ record.price }}</div>
       </div>
-    </div>
-    <div>
       <record-options v-bind="record" />
     </div>
+    <div class="loading" v-else></div>
   </div>
 </template>
 <script>
@@ -30,9 +27,9 @@ export default {
       loading: false,
     };
   },
-  created() {
+  async created() {
     this.loading = true;
-    axios.get(`/api/records/${this.$route.params.id}`).then((response) => {
+    await axios.get(`/api/records/${this.$route.params.id}`).then((response) => {
       this.record = response.data.data;
       this.loading = false;
     });

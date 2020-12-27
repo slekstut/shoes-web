@@ -38372,10 +38372,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "logo" }, [
       _c("img", {
-        attrs: {
-          src: __webpack_require__(/*! ../../data/e.shop-icon.png */ "./resources/data/e.shop-icon.png"),
-          alt: "eshop-brand"
-        }
+        attrs: { src: "/storage/e.shop-icon.png", alt: "eshop-brand" }
       })
     ])
   },
@@ -53702,17 +53699,6 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./resources/data/e.shop-icon.png":
-/*!****************************************!*\
-  !*** ./resources/data/e.shop-icon.png ***!
-  \****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/e.shop-icon.png?95b65c7200265eb5df1da36f5c4e7f74";
-
-/***/ }),
-
 /***/ "./resources/js/Form.js":
 /*!******************************!*\
   !*** ./resources/js/Form.js ***!
@@ -54432,7 +54418,7 @@ var routes = [{
   path: '/record/:id',
   name: 'record',
   component: function component() {
-    return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./views/record/Record.vue */ "./resources/js/views/record/Record.vue"));
+    return Promise.all(/*! import() */[__webpack_require__.e(7), __webpack_require__.e(1)]).then(__webpack_require__.bind(null, /*! ./views/record/Record.vue */ "./resources/js/views/record/Record.vue"));
   }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({

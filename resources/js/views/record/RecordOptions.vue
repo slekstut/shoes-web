@@ -7,12 +7,8 @@
           <label for="size-number">Size</label>
           <select name="size-number" id="size-number" v-model="selectedSize">
             <option value disabled>Please choose size</option>
-            <option
-              v-for="(size, index) in sizeSelection"
-              :key="index"
-              :value="size.value"
-            >
-              {{ size.text }}
+            <option>
+              {{ size }}
             </option>
           </select>
         </div>
@@ -20,27 +16,32 @@
           <label for="color-name">Color</label>
           <select name="color-name" id="color-name" v-model="selectedColor">
             <option disabled value>Please choose a color</option>
-            <option
-              v-for="(color, index) in colorSelection"
-              :key="index"
-              :value="color.value"
-            >
-              {{ color.text }}
+            <option>
+              {{ color }}
             </option>
           </select>
         </div>
         <div class="quantity-selector">
-          <label for="quantity">Quantity</label>
+          <label for="quantity"
+            >Quantity <span>({{ units }} Available)</span>
+          </label>
           <button id="decrease" @click.prevent="decrease">-</button>
           <input
             type="number"
             min="0"
             step="1"
             onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57"
-            v-model="value"
+            :value="quantity"
+            v-on:keyup.delete="clear"
+            @input="check"
           />
           <button id="increase" @click.prevent="increase">+</button><br />
-          <button class="add-btn" @click="check">Add to Card &#183; &#36; 244.34</button>
+          <span class="units-error" v-if="quantityError"
+            >Only {{ units }} pieces available</span
+          >
+          <button class="add-btn" type="submit" @click.prevent="toShoppingCart">
+            Add to Card &#183; € {{ totalCartPrice }}
+          </button>
         </div>
       </form>
     </div>
@@ -49,40 +50,71 @@
 
 <script>
 export default {
-  props: { price: Number, size: Number, color: String },
+  props: {
+    units: {
+      type: Number,
+      required: false,
+    },
+    size: {
+      type: Number,
+      required: false,
+    },
+    color: {
+      type: String,
+      required: false,
+    },
+  },
   data() {
     return {
-      value: null,
-      sizeSelection: [
-        { text: "6", value: "six" },
-        { text: "7", value: "seven" },
-        { text: "8", value: "eight" },
-        { text: "9", value: "nine" },
-        { text: "10", value: "ten" },
-        { text: "11", value: "eleven" },
-        { text: "12", value: "twelve" },
-      ],
-      colorSelection: [
-        { text: "Red", value: "R" },
-        { text: "Green", value: "G" },
-        { text: "Black", value: "B" },
-        { text: "White", value: "W" },
-      ],
       selectedSize: "",
       selectedColor: "",
+      quantity: 1,
+      totalCartPrice: 0,
+      quantityError: false,
     };
+  },
+  async created() {
+    this.loading = true;
+    await axios.get(`/api/records/${this.$route.params.id}`).then((response) => {
+      this.record = response.data.data;
+      this.loading = false;
+      this.totalCartPrice = this.record.price;
+    });
   },
   methods: {
     increase() {
-      this.value += 1;
+      if (this.quantity === this.units) {
+        return (this.quantityError = true);
+      } else {
+        this.quantity += 1;
+        this.totalCartPrice = this.record.price * this.quantity;
+        this.quantityError = false;
+      }
     },
     decrease() {
-      if (this.value === 0) return;
-      this.value -= 1;
+      if (this.quantity === 1) return;
+      this.quantity -= 1;
+      this.totalCartPrice = this.record.price * this.quantity;
+      this.quantityError = false;
     },
-    check() {
-      //
-      alert("Alert from check method.");
+    clear() {
+      this.quantity = 0;
+      this.quantityError = false;
+      this.totalCartPrice = this.record.price * this.quantity;
+    },
+    check(event) {
+      const value = parseInt(event.target.value);
+      this.quantityError = false;
+      if (value <= this.units) {
+        this.quantity = value;
+        this.totalCartPrice = this.record.price * this.quantity;
+      } else {
+        this.quantityError = true;
+      }
+      this.$forceUpdate();
+    },
+    toShoppingCart() {
+      console.log("to shopping cart");
     },
   },
 };

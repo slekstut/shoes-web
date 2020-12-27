@@ -27,12 +27,14 @@ $navbar-color: #525050;
 
 html {
     position: relative;
-    height: 100%;
+    min-height: 100vh;
 }
 
 body {
     background-color: $backgroundColor;
-    margin: 0 auto;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
 }
 
 .wrapper {
@@ -211,7 +213,6 @@ nav {
         align-content: center;
         justify-content: center;
         li {
-            cursor: pointer;
             padding: 0.5em 2em;
             font-size: 14px;
             font-weight: 300;
@@ -231,7 +232,7 @@ nav {
                 border-right: none;
                 border-left: none;
                 background-color: rgba(0, 0, 0, 0);
-
+                cursor: pointer;
                 &:after {
                     content: "";
                     color: $border-color;
@@ -278,7 +279,7 @@ nav {
     height: 100vh;
     .homepage-hero-image {
         display: block;
-        background-image: url("../data/img/homepage-hero.jpg");
+        background-image: url("/storage/img/homepage-hero.jpg");
         background-size: cover;
         background-position: center center;
         width: 100%;
@@ -410,14 +411,14 @@ nav {
         font-weight: 300;
         text-align: center;
         line-height: 1.3em;
-        letter-spacing: 0.2em;
+        letter-spacing: 0.1em;
         padding: 1.2em 1em;
     }
     .homepage-custom {
         position: relative;
         height: 50em;
         .parallax {
-            background-image: url("../data/img/women-shopping.jpg");
+            background-image: url("/storage/img/women-shopping.jpg");
             height: 100%;
             background-attachment: fixed;
             background-position: center;
@@ -449,14 +450,26 @@ nav {
 }
 
 .loading {
-    margin: 0 auto;
-    font-size: 2em;
-    text-align: center;
-    padding: 2em 0;
+    position: absolute;
+    // margin: 0 auto;
+    top: 40%;
+    left: 50%;
+    border: 10px solid $background-darker; 
+    border-top: 10px solid $background-1; 
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;
+   
 }
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 
 .cards-section {
     max-width: 1366px;
+    height: 100%;
     grid-template-columns: repeat(auto-fit, minmax(330px, 370px));
     grid-gap: 0.4em;
     display: grid;
@@ -671,123 +684,153 @@ nav {
     }
 }
 
-.record-wrapper {
-    width: 100%;
+.review-page {
+    position: relative;
     height: 100vh;
-    max-width: 1366px;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 0.8em;
-    display: grid;
-    align-content: center;
-    justify-content: center;
     margin: 0 auto;
-    .record-info {
-        padding: 0.5em;
+    .record-wrapper {
+        max-width: 1366px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 0.4em;
+        align-content: center;
+        justify-content: center;
         .record-text {
+            margin-top: 4em;
+            img {
+                width: 100%;
+            }
+            height: 100vh;
+            text-align: left;
             padding: 0.5em;
-            .record-title{
+            .record-title {
+                margin-top: 1.5em;
                 font-weight: 600;
             }
             .record-description {
-                font-size: .9em;
+                font-size: 0.9em;
             }
             .record-details-price {
                 padding: 1.5em 0;
                 font-size: 1.2em;
-
             }
         }
-    }
-    .record-options {
-        text-align: center;
-        .record-options-header {
-            text-transform: uppercase;
-            font-weight: 300;
-            font-size: 2em;
-            letter-spacing: 0.2em;
-            margin-bottom: 2.2em;
-        }
-        .selection-wrapper {
-            width: 60%;
-            margin: 0 auto;
-            form {
-                padding-left: 2em;
-    
-                label {
-                    width: 100%;
-                    display: block;
-                    margin: 1.5em 0 .4em 0;
-                    letter-spacing: .2em;
-                    font-size: 1.3em;
-                    text-transform: uppercase;
-                }
-                select {
-                    text-align: center;
-                    width: 100%;
-                    height: 2.2em;
-                    border: none;
-                    border-bottom: 1px solid $text-color;
-                    padding: .2em .2em;
-                    &:focus { outline: none; }
-                }
-                .quantity-selector {
-                    display: block;
-                    input {
-                        position: relative;
-                        height: 2em;
-                        padding: .3em;
-                    }
+        .record-options {
+            margin-top: 4em;
+            height: 100vh;
+            text-align: center;
+            .record-options-header {
+                text-transform: uppercase;
+                font-weight: 300;
+                font-size: 2em;
+                letter-spacing: 0.2em;
+                margin-bottom: 2.2em;
+            }
+            .selection-wrapper {
+                width: 60%;
+                margin: 0 auto;
+                form {
+                    padding-left: 2em;
 
-                    input::-webkit-outer-spin-button,
-                    input::-webkit-inner-spin-button {
-                        /* display: none; <- Crashes Chrome on hover */
-                        -webkit-appearance: none;
-                        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
-                    }
-                    
-                    input[type=number] {
-                        -moz-appearance:textfield; /* Firefox */
-                    }
-
-                    button {
-                        width: 2em;
-                        border: none;
-                        font-size: 1.5em;
-                        #decrease {
-                            position: absolute;
-                            left: .1em;
-                        }
-                        #increase {
-                            position: absolute;
-                            right: .1em;
-                        }
-                    }
-                    .add-btn {
-                        display: block;
+                    label {
                         width: 100%;
-                        font-size: 1.5em;
-                        font-weight: 100;
-                        background: $backgroundColor;
-                        border: 1px solid $text-color;
-                        padding: .3em;
-                        margin: 3em 0;
-                        &:hover {
-                            background: $text-color;
-                            color: $backgroundColor;
+                        display: block;
+                        margin: 1.5em 0 0.4em 0;
+                        letter-spacing: 0.2em;
+                        font-size: 1.3em;
+                        text-transform: uppercase;
+                        span {
+                            font-size: .5em;
+                            letter-spacing: .1em;
+                            color: $text-color-2;
+                        }
+                    }
+                    select {
+                        text-align: center;
+                        width: 100%;
+                        height: 2.2em;
+                        border: none;
+                        border-bottom: 1px solid $text-color;
+                        padding: 0.2em 0.2em;
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+                    .quantity-selector {
+                        display: block;
+                        input {
+                            position: relative;
+                            height: 2em;
+                            padding: 0.3em;
+                        }
+
+                        input::-webkit-outer-spin-button,
+                        input::-webkit-inner-spin-button {
+                            /* display: none; <- Crashes Chrome on hover */
+                            -webkit-appearance: none;
+                            margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+                        }
+
+                        input[type="number"] {
+                            -moz-appearance: textfield; /* Firefox */
+                        }
+
+                        .units-error {
+                            margin: 1em 0;
+                            font-size: .8em;
+                            color: $text-color-2;
+                        }
+
+                        button {
+                            width: 2em;
+                            border: none;
+                            font-size: 1.5em;
+                            background: $backgroundColor;
+                            color: $text-color;
+                            #decrease {
+                                position: absolute;
+                                left: 0.1em;
+                            }
+                            #increase {
+                                position: absolute;
+                                right: 0.1em;
+                            }
+                            &:hover {
+                                background: $text-color;
+                                color: $backgroundColor;
+                                border-radius: .2em;
+                            }
+                            &:focus {
+                                outline: none;
+                            }
+                        }
+                        .add-btn {
+                            display: block;
+                            width: 100%;
+                            font-size: 1.5em;
+                            font-weight: 100;
+                            background: $backgroundColor;
+                            border: 1px solid $text-color;
+                            padding: 0.3em;
+                            margin: 3em 0;
+                            &:hover {
+                                background: $text-color;
+                                color: $backgroundColor;
+                            }
                         }
                     }
                 }
             }
         }
-        
     }
+    
 }
 
 .about-wrapper {
     width: 100%;
     height: 100vh;
     position: relative;
-    background-image: url("../data/img/learn-code.jpg");
+    background-image: url("/storage/img/learn-code.jpg");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -828,13 +871,14 @@ nav {
         width: 60em;
         padding: 1em 5em;
         text-align: center;
+        margin: 0 auto;
         h1 {
             font-size: 3em;
             font-weight: 300;
             padding: 0.5em 0.5em;
         }
         h3 {
-            font-size: 2.2em;
+            font-size: 1.5em;
             padding-bottom: 1.5em;
         }
     }
